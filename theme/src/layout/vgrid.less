@@ -1,0 +1,181 @@
+/**
+ * Layout using vgrid
+ */
+
+/**
+ * Variables
+ */
+
+
+/**
+ * General layout
+ */
+.row {
+    #desinax-vgrid.row();
+     // background-color: #0f0;
+    margin-bottom: 12px;
+}
+
+.inner-wrap {
+    #desinax-vgrid.grid(1300px);
+     // max-width: 1100px;
+     // margin: 0 auto;
+    background-color: #ccc;
+
+}
+
+.inner-wrap-header {
+    #desinax-vgrid.grid(100%);
+}
+
+.vgrid .inner-wrap {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    //@gridImage: "../../img/grid_12x60x20-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1200px);
+
+    &.inner-wrap-header {
+        #desinax-vgrid.showGrid(@gridImage);
+    }
+}
+
+.site-logo {
+    display: none;
+}
+
+.inner-wrap-footer {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1500px);
+}
+
+
+ /**
+  * Header layout
+  */
+.outer-wrap-header {
+    background-color: #9f9;
+}
+
+.my-navbar {
+}
+
+.inner-wrap-header {
+}
+
+.region-header-col-1,
+.region-header-col-3 {
+    #desinax-vgrid.column(5);
+}
+
+.region-header-col-2 {
+    #desinax-vgrid.column(14);
+    text-align: center;
+}
+
+.region-breadcrumb {
+    #desinax-vgrid.column(@columns);
+}
+
+.region-flash img {
+    // #desinax-vgrid.column(@columns);
+    width: 2500px;
+}
+
+ /**
+  * Main, and sidebars layout
+  */
+.inner-wrap-main {
+}
+
+.region-main {
+    #desinax-vgrid.column(@columns * 3 / 5);
+    #desinax-vgrid.push(2);
+
+    &.has-sidebar {
+        #desinax-vgrid.push(0);
+    }
+
+    &.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 5 - 1);
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+    }
+}
+
+.region-sidebar-left,
+.region-sidebar-right {
+     #desinax-vgrid.column(6);
+}
+
+.region-sidebar-right {
+     #desinax-vgrid.push(1);
+}
+
+.region-main {
+}
+
+.author-byline {
+    border: 1px solid black;
+}
+
+.author-byline p {
+    width: 95%;
+}
+
+.author-byline img {
+    float: left;
+    padding-right: 17px;
+}
+
+
+/**
+* responsive 1, 2, 3
+*/
+@media screen and (max-width: 1000px) {
+    .region-main {
+        #desinax-vgrid.column(@columns);
+    }
+    .region-sidebar-left {
+        #desinax-vgrid.column(@columns);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .region-main.has-sidebar-right {
+        #desinax-vgrid.column(@columns);
+    }
+
+    .region-sidebar-right {
+        display: none;
+        #desinax-vgrid.column(@columns);
+        #desinax-vgrid.push(0);
+    }
+
+}
+
+
+
+/**
+* Footer layout
+*/
+.footer-column {
+    #desinax-vgrid.column(@columns / 3);
+}
+
+.site-footer {
+    #desinax-vgrid.column(@columns);
+}
+
+.outer-wrap-footer,
+.inner-wrap-footer {
+    color: #fff;
+    background-color: #333;
+}
+
+.inner-wrap-footer a {
+    color: aqua;
+}
+
+.site-footer p {
+    text-align: center;
+}
